@@ -1,0 +1,49 @@
+doctype
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='Content-Type',content='text/html; charset=utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    title el AMOR proyectos &lt;3
+    link(rel='stylesheet', id='mainStylesheet' href='../css/main.styl')
+  body
+    include includes/header.pug
+    #main
+        #proyectos.videoGrid.block.whitespace( data-bg='rgb( 209, 233, 247 )' )
+          .blockInner.clearfix
+            a(href='video#p1').project
+              .imageHolder( style='background-image: url("./../assets/img/home2.jpg")')
+              .legend
+                .vcenter.clearfix EQUILIBRIO #[span.date 01/6]
+            a(href='video#p2').project
+              .imageHolder( style='background-image: url("./../assets/img/home1.jpg")')
+              .legend
+                .vcenter.clearfix BOTANICO #[span.date 25/5]
+            a(href='video#p3').project
+              .imageHolder( style='background-image: url("./../assets/img/home3.jpg")')
+              .legend
+                .vcenter.clearfix INTERFERENCIAS #[span.date 25/5]
+            a(href='video#p4').project
+              .imageHolder( style='background-image: url("./../assets/img/home4.jpg")')
+              .legend
+                .vcenter.clearfix VÉRTIGO #[span.date 25/5]
+            a(href='video#p5').project
+              .imageHolder( style='background-image: url("./../assets/img/home1.jpg")')
+              .legend
+                .vcenter.clearfix BOTANICO #[span.date 25/5]
+            a(href='video#p6').project
+              .imageHolder( style='background-image: url("./../assets/img/home2.jpg")')
+              .legend
+                .vcenter.clearfix EQUILIBRIO #[span.date 01/6]
+            a(href='video#p7').project
+              .imageHolder( style='background-image: url("./../assets/img/home3.jpg")')
+              .legend
+                .vcenter.clearfix INTERFERENCIAS #[span.date 25/5]
+            a(href='video#p8').project
+              .imageHolder( style='background-image: url("./../assets/img/home4.jpg")')
+              .legend
+                .vcenter.clearfix VÉRTIGO #[span.date 25/5]
+    include includes/footer.pug
+        
+    script(src='../js/main.js')

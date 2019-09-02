@@ -1,0 +1,108 @@
+doctype
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='Content-Type',content='text/html; charset=utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    title el AMOR proyectos &lt;3
+    link(rel='stylesheet', id='mainStylesheet' href='../css/main.styl')
+  body
+    include includes/header.pug
+    #main
+      #home( data-bg = 'rgba( 0, 0, 0, 0)', data-mousex = '0', data-mousey = '0' ).block
+        .vid
+          .videoInner
+            video( data-width='480', data-height='270', data-vw='480', data-vh='270', autoplay=true, loop=true, muted=true )
+              source( src='../assets/videos/v1.mp4', type='video/mp4' )
+        .vid
+          .videoInner
+            video( data-width='480', data-height='264', data-vw='480', data-vh='264', autoplay=false, loop=true, muted=true )
+              source( src='../assets/videos/v2.mp4', type='video/mp4' )
+        .vid
+          .videoInner
+            video( data-width='480', data-height='270', data-vw='480', data-vh='480', autoplay=false, loop=true, muted=true )
+              source( src='../assets/videos/v3.mp4', type='video/mp4' )
+        .vid.active
+          .videoInner
+            video( data-width='480', data-height='480', data-vw='480', data-vh='480', autoplay=false, loop=true, muted=true )
+              source( src='../assets/videos/v4.mp4', type='video/mp4' )
+        .vid
+          .videoInner
+            video( data-width='480', data-height='480', data-vw='480', data-vh='480', autoplay=false, loop=true, muted=true )
+              source( src='../assets/videos/v5.mp4', type='video/mp4' )
+        .vid
+          .videoInner
+            video( data-width='480', data-height='480', data-vw='480', data-vh='480', autoplay=false, loop=true, muted=true )
+              source( src='../assets/videos/v6.mp4', type='video/mp4' )
+        .vid
+          .videoInner
+            video( data-width='480', data-height='264', data-vw='480', data-vh='264', autoplay=false, loop=true, muted=true )
+              source( src='../assets/videos/v7.mp4', type='video/mp4' )
+        .logos.m3
+      #amor.block( data-bg='rgb( 255, 217, 217 )' )
+        .blockInner
+          .copy
+            p #[b elAMOR proyectos] es una productora que impulsa y promueve diferentes iniciativas artísticas en espacios no convencionales. 
+            p Nos centramos en la creación y materialización de proyectos con una línea de investigación basada en el movimiento, lo performativo y las artes vivas, accionando nuevos modos de crear con un pensamiento crítico.
+      #proyectos.block( data-bg='rgb( 255, 217, 217 )' )
+        .blockInner.clearfix
+          a(href='proyectos#p1').project
+            .imageHolder( style='background-image: url("./../assets/img/home1.jpg")')
+            .legend
+              .vcenter.clearfix BOTANICO #[span.date 25/5]
+          a(href='proyectos#p1').project
+            .imageHolder( style='background-image: url("./../assets/img/home2.jpg")')
+            .legend
+              .vcenter.clearfix EQUILIBRIO #[span.date 01/6]
+          a(href='proyectos#p1').project
+            .imageHolder( style='background-image: url("./../assets/img/home3.jpg")')
+            .legend
+              .vcenter.clearfix INTERFERENCIAS #[span.date 25/5]
+          a(href='proyectos#p1').project
+            .imageHolder( style='background-image: url("./../assets/img/home4.jpg")')
+            .legend
+              .vcenter.clearfix VÉRTIGO #[span.date 25/5]
+    include includes/footer.pug
+    script.
+      var homeNode = document.getElementById( 'home' ), videos = document.getElementsByClassName( 'vid' ), offset = 150
+      videos[ Math.floor( Math.random() * videos.length) ].classList.add( 'active' )
+
+      for( var i = 0 ; i < videos.length ; i++ ){
+          var v = videos[i].childNodes[ 0 ].childNodes[ 0 ]
+          var c = videos[i].childNodes[ 0 ]
+          var [ rx, ry, vx, vy, ax, ay ] = [ v.dataset.vw, v.dataset.vh, v.dataset.width, v.dataset.height, homeNode.offsetWidth, homeNode.offsetHeight ]
+          var ar = ay / ax, vr = vy / vx, rr = ry / rx
+          
+          if( ar < vr ){
+              c.style.height = ay / ar * ( ry / vy ) + 'px'
+              c.style.width = ax * ( rx / vx )+ 'px'
+          } else {
+              console.log( i )
+              c.style.width = ( ay * ( ry / vy ) ) / rr + 'px'
+              c.style.height = ay * ( ry / vy )+ 'px'
+          }
+          v.setAttribute( 'width', c.offsetWidth )
+          v.setAttribute( 'height', c.offsetHeight  )
+      }
+
+      homeNode.addEventListener('mousemove', e => {
+          if( parseInt( homeNode.dataset.mousex ) !== Math.floor( e.clientX / offset ) || parseInt( homeNode.dataset.mousey ) !== Math.floor( e.clientY / offset ) ){
+              document.querySelectorAll( '.vid.active' )[ 0 ].childNodes[ 0 ].childNodes[ 0 ].pause()
+              document.querySelectorAll( '.vid.active' )[ 0 ].classList.remove( 'active' )
+              var vid = videos[ Math.floor( Math.random() * videos.length) ]
+              vid.childNodes[ 0 ].childNodes[ 0 ].play()
+              vid.classList.add( 'active' )
+              homeNode.getElementsByClassName( 'logos' )[ 0 ].setAttribute( 'class', 'logos m' + ( Math.floor( Math.random() * 6 ) + 1 ) )
+              homeNode.dataset.mousex = Math.floor( e.clientX / offset )
+              homeNode.dataset.mousey = Math.floor( e.clientY / offset )
+          }
+      });
+
+
+      homeNode.addEventListener( 'click', ( ) =>  {
+        document.querySelector('#amor').scrollIntoView({
+                behavior: 'smooth'
+        });
+      } )
+    script(src='../js/main.js')

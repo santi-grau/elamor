@@ -1,0 +1,306 @@
+@font-face
+    font-family mercury
+    font-weight 200
+    src url('./../assets/fonts/mercury_light.otf')
+
+@font-face
+    font-family mercury
+    font-weight 400
+    src url('./../assets/fonts/mercury_regular.otf')
+
+@font-face
+    font-family mercury
+    font-weight 600
+    src url('./../assets/fonts/mercury_medium.otf')
+
+@font-face
+    font-family mercury
+    font-weight 800
+    src url('./../assets/fonts/mercury_bold.otf')
+
+html, body
+    padding 0
+    margin 0
+    font-family mercury
+    font-weight 200
+
+b
+    font-weight 600 !important
+
+#header
+    position fixed
+    top 0
+    left 0
+    width 100%
+    height 56px
+    border-bottom solid 1px #000000
+    font-size 23px
+    z-index 2
+    a
+        display inline-block
+        text-decoration none
+        color #000000
+        margin-right 80px
+        position relative
+        top 50%
+        transform translateY( -50% )
+        &:first-child
+            margin-left 20px
+       
+    #logo
+        position absolute
+        right 20px
+        top 50%
+        transform translateY( -50% )
+        width 230px
+        height 23px
+        background url('./../assets/logo.svg')
+
+#footer
+    width 100%
+    overflow hidden
+    background rgb( 255, 108, 102 )
+    .marquee
+        height 73px
+        width 100%
+        overflow hidden
+        position relative
+        font-size 23px
+        
+        .marqueeInner
+            display block
+            top 50%
+            transform translatey( -50% )
+            width 200%
+            height 30px
+            position absolute
+            overflow hidden
+            animation marquee 8s linear infinite
+            span
+                float left
+                width 50%
+    .info
+        background #000000
+        .inner
+            margin 0 auto
+            width 1280px
+
+
+
+#main
+    .block
+        width 100%
+        &.whitespace
+            padding-top 77px
+        .blockInner
+            width 1240px
+            margin 0 auto
+
+#home
+    height 100vh
+    background #666666
+    position relative
+    .vid
+        z-index 0
+        width 100%
+        height 100%
+        background #000000
+        position absolute
+        top 0
+        left 0
+        opacity 0
+        overflow hidden
+        &.active
+            opacity 1
+        .videoInner
+            position absolute
+            transform translate3d( -50%, -50%, 0 )
+            top 50%
+            left 50%
+            video
+                position absolute
+                top 0
+                left 0
+                
+    .logos
+        width 250px
+        height 250px
+        position absolute
+        transform translate3d( -50%, -50%, 0 )
+        top 50%
+        left 50%
+        background-position center center
+        mix-blend-mode screen
+        z-index 2
+        &.m1
+            background-image url( '../assets/logo1.svg' )
+        &.m2
+            background-image url( '../assets/logo2.svg' )
+        &.m3
+            background-image url( '../assets/logo3.svg' )
+        &.m4
+            background-image url( '../assets/logo4.svg' )
+        &.m5
+            background-image url( '../assets/logo5.svg' )
+        &.m6
+            background-image url( '../assets/logo6.svg' )
+
+
+
+#amor
+    background rgb( 255, 217, 217 )
+    .blockInner
+        padding 76px 20px 40px
+        .copy
+            font-size 60px
+            line-height 67px
+            letter-spacing -1px
+            p
+                &:first-child
+                    margin-top 0
+                &:last-child
+                    margin-bottom 0
+#proyectos
+    background rgb( 255, 217, 217 )
+    &.projectGrid
+        background rgb( 210, 227, 211 )
+    &.videoGrid
+        background rgb( 209, 233, 247 )
+    .blockInner
+        .project
+            float left
+            width 601px
+            height 410px
+            margin-bottom 38px
+            text-decoration none
+            color #000000
+            &:nth-child(even)
+                margin-left 38px
+            &:hover
+                cursor pointer
+                .legend
+                    opacity 1
+            .imageHolder
+                width 100%
+                height 373px
+                background-position center center
+                background-size cover
+                transition background 0.4s
+            .legend
+                width 100%
+                height 37px
+                opacity 0
+                transition opacity 0.2s
+                .vcenter
+                    width 100%
+                    font-size 23px
+                    position relative
+                    top 50%
+                    transform translateY( -50% )
+                    .date
+                        float right
+
+#agenda
+    background rgb( 251, 239, 208 )
+    .blockInner
+        #eventViewer
+            position relative
+            width 729px
+            height calc( 100vh - 117px )
+            margin-bottom 40px
+            float right
+            .imgHolder
+                width 100%
+                height 100%
+                position absolute
+                top 0 
+                left 0
+                background-size cover
+                background-position center center
+                opacity 0
+                &.active
+                    opacity 1
+        ul
+            list-style-type none
+            margin 0
+            padding 0
+            width 473px
+            text-transform uppercase
+            li
+                cursor pointer
+                font-size 25px
+                border-top solid 1px #000000
+                white-space nowrap
+                overflow hidden
+                text-overflow ellipsis
+                font-weight 400
+                letter-spacing -1px
+                &:hover
+                    font-weight 800
+                &.past
+                    border-top solid 1px #bfbfbf
+                    color #bfbfbf
+                .date
+                    font-weight 400
+                    display inline-block
+                    width 90px
+
+.videoInternal
+    .head
+        position relative
+        width 100%
+        height 100vh
+        background-size cover
+        backgrond-position center center
+        margin-bottom 56px
+        .title
+            position absolute
+            transform translate3d( -50%, -50%, 0 )
+            top 50%
+            left 50%
+            text-align center
+            font-size 30px
+            color #ffffff
+    &>.photo
+        margin 50px auto
+        &.twocol
+            height 396px
+            .im
+                width 615px
+                height 396px
+                background-size cover
+                backgrond-position center center
+                &:first-child
+                    float left
+                &:last-child
+                    float right
+    .blockInner
+        .copy
+            margin 50px auto
+            font-size 30px
+            width 980px
+        .photo
+            margin 50px auto
+            &.onecol
+                height 623px
+                .im
+                    margin 0px auto
+                    width 980px
+                    height 623px
+                    background-size cover
+                    backgrond-position center center
+       
+
+.clearfix::after
+    content ""
+    clear both
+    display table
+
+.clearfix
+    overflow auto
+
+@keyframes marquee
+    0%
+        left 0
+    100%
+        left -100%

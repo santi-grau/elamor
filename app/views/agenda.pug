@@ -1,0 +1,43 @@
+doctype
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='Content-Type',content='text/html; charset=utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    title el AMOR proyectos &lt;3
+    link(rel='stylesheet', id='mainStylesheet' href='../css/main.styl')
+  body
+    include includes/header.pug
+    #main
+        #agenda.block.whitespace( data-bg='rgb( 251, 239, 208 )' )
+            .blockInner.clearfix
+                #eventViewer
+                    .imgHolder( style='background-image: url("./../assets/img/agenda1.jpg")')
+                    .imgHolder( style='background-image: url("./../assets/img/agenda2.jpg")')
+                    .imgHolder.active( style='background-image: url("./../assets/img/agenda3.jpg")')
+                ul
+                    li.event( data-img = '0' ) #[span.date 22.9 ] Circulo de Interferencias y algo mas
+                    li.event( data-img = '2' ) #[span.date 5.10 ] Botanico
+                    li.event( data-img = '0' ) #[span.date 17.10 ] VÉRTIGO
+                    li.event( data-img = '1' ) #[span.date 8.11 ] Circulo de Interferencias
+                    li.event( data-img = '2' ) #[span.date 12.11 ] Botanico
+                    li.event( data-img = '0' ) #[span.date 4.11 ] VÉRTIGO
+                    li.event.past( data-img = '1' ) #[span.date 22.9 ] Circulo de Interferencias
+                    li.event.past( data-img = '2' ) #[span.date 5.10 ] Botanico
+                    li.event.past( data-img = '1' ) #[span.date 17.10 ] Vertigo
+                    li.event.past( data-img = '0' ) #[span.date 8.11 ] Circulo de Interferencias
+                    li.event.past( data-img = '1' ) #[span.date 12.11 ] Botanico
+                    li.event.past( data-img = '2' ) #[span.date 4.11 ] Botanico
+    include includes/footer.pug
+    script.
+        var events = document.getElementsByClassName( 'event' )
+        var imgs = document.getElementsByClassName( 'imgHolder' )
+        for( var i = 0 ; i < events.length ; i++ ){
+            events[ i ].addEventListener( 'mouseenter' , ( e ) => {
+                for( var j = 0 ; j < imgs.length ; j++ ) imgs[ j ].classList.remove( 'active' ) 
+                imgs[ e.target.dataset.img ].classList.add( 'active' ) 
+            })
+        }
+        
+    script(src='../js/main.js')
